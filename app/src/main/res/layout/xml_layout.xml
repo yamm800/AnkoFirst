@@ -11,7 +11,9 @@
     tools:context="yamaguchi.na_s.jp.ankofirst.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="This is XML layout."
+        android:layout_marginTop="16dip"
+        />
 </RelativeLayout>

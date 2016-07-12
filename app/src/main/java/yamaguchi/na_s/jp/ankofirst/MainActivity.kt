@@ -1,7 +1,10 @@
 package yamaguchi.na_s.jp.ankofirst
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.RelativeLayout
 import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,13 +17,51 @@ class MainActivity : AppCompatActivity() {
 }
 
 class MainActivityUi() : AnkoComponent<MainActivity> {
+
+    val xmlLayoutId = View.generateViewId()
+    var xmlLayout : RelativeLayout? = null
+
     override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
 
         verticalLayout {
+
             textView {
                 text = "Hello, Anko!"
+                backgroundColor = Color.BLACK
+                textColor = Color.WHITE
+            }.lparams {
+                topMargin = dip(16)
             }
-        }
 
+//            linearLayout {
+//                button {
+//
+//                }
+//
+//                button {
+//
+//                }
+//
+//                button {
+//
+//                }
+//            }
+
+//            xmlLayout = include<RelativeLayout>(R.layout.xml_layout) {
+//                id = xmlLayoutId
+//            }
+//
+//            textView {
+//                text = "Hello, Anko!"
+//                width = wrapContent
+//                backgroundColor = Color.BLACK
+//                textColor = Color.WHITE
+//
+//                lparams { // LayoutParams
+//                    rightOf(xmlLayoutId)
+//                    alignParentRight()
+//                }
+//            }
+        }
     }
 }
