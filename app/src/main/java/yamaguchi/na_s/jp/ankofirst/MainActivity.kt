@@ -18,12 +18,13 @@ class MainActivity : AppCompatActivity() {
 
 class MainActivityUi() : AnkoComponent<MainActivity> {
 
-    val xmlLayoutId = View.generateViewId()
-    var xmlLayout : RelativeLayout? = null
-
     override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
 
-        verticalLayout {
+        relativeLayout {
+
+            val xmlLayout = include<RelativeLayout>(R.layout.xml_layout) {
+
+            }
 
             textView {
                 text = "Hello, Anko!"
@@ -31,37 +32,9 @@ class MainActivityUi() : AnkoComponent<MainActivity> {
                 textColor = Color.WHITE
             }.lparams {
                 topMargin = dip(16)
+                rightOf(xmlLayout)
+                alignParentRight()
             }
-
-//            linearLayout {
-//                button {
-//
-//                }
-//
-//                button {
-//
-//                }
-//
-//                button {
-//
-//                }
-//            }
-
-//            xmlLayout = include<RelativeLayout>(R.layout.xml_layout) {
-//                id = xmlLayoutId
-//            }
-//
-//            textView {
-//                text = "Hello, Anko!"
-//                width = wrapContent
-//                backgroundColor = Color.BLACK
-//                textColor = Color.WHITE
-//
-//                lparams { // LayoutParams
-//                    rightOf(xmlLayoutId)
-//                    alignParentRight()
-//                }
-//            }
         }
     }
 }
